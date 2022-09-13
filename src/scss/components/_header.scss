@@ -1,0 +1,15 @@
+@use "../utils/flex-mixin" as mix;
+
+.header {
+    @include mix.setFlex(row, space-between);
+    width: 85%;
+    max-width: 475px;
+    margin: 25px 0;
+    
+    &__logo {
+        color: var(--secondary-font-color);
+        font-size: 1em;
+        padding-left: 5px;
+        transform: translateY(-10px);
+    }
+}

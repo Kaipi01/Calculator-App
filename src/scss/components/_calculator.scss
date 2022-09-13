@@ -1,0 +1,147 @@
+@use "../utils/flex-mixin" as mix;
+
+.calculator {
+  @include mix.setFlex(column);
+  width: 85%;
+  max-width: 475px;
+  gap: 20px;
+
+  &__screen {
+    @include mix.setFlex(row, flex-end);
+    border-radius: 10px;
+    width: 100%;
+    height: 100px;
+    padding: 0 20px;
+    @media only screen and (min-width: 550px) {
+      height: 120px;
+      padding: 0 30px;
+    }
+    background-color: var(--screen-color);
+    position: relative;
+    overflow: auto;
+
+    &Number {
+      color: var(--secondary-font-color);
+      font-weight: 700;
+
+      &--big {
+        font-size: 1.2em;
+      }
+
+      &--small {
+        font-size: 1em;
+      }
+
+      &--smaller {
+        font-size: 0.8em;
+      }
+
+      @media only screen and (min-width: 700px) {
+        &--big {
+          font-size: 1.5em;
+        }
+
+        &--small {
+          font-size: 1.2em;
+        }
+
+        &--smaller {
+          font-size: 1em;
+        }
+      }
+    }
+
+    &Operator {
+      position: absolute;
+      font-size: 0.75em;
+      top: 10px;
+      right: 15px;
+      color: var(--tertiary-key-color);
+    }
+  }
+
+  &__keypad {
+    @include mix.setFlex();
+    //justify-content: flex-end;
+    align-items: flex-end;
+    border-radius: 10px;
+    background-color: var(--keypad-color);
+    flex-wrap: wrap;
+    padding: 20px;
+    @media only screen and (min-width: 550px) {
+      padding: 30px;
+    }
+    gap: 15px;
+    @media only screen and (min-width: 550px) {
+      gap: 20px;
+    }
+  }
+
+  &__btn {
+    background-color: var(--primary-key-color);
+    cursor: pointer;
+    color: var(--font-color);
+    border: none;
+    border-radius: 5px;
+    border-bottom: 4px solid var(--primary-key-shadow-color);
+    @media only screen and (min-width: 550px) {
+      border-radius: 10px;
+    }
+    font-size: 1em;
+    font-weight: 700;
+    transition: all 0.2s ease-in-out;
+    height: 60px;
+    width: calc(25% - 12px);
+    &:active {
+      border: none;
+      height: 56px;
+    }
+    @media only screen and (min-width: 550px) {
+      height: 55px;
+      width: calc(25% - 15px);
+
+      &:active {
+        height: 51px;
+      }
+    }
+
+    &:hover,
+    &:focus {
+      background-color: var(--primary-key-hover-color);
+    }
+
+    &:nth-child(4),
+    &:nth-child(17) {
+      font-size: 0.57em;
+      @media only screen and (min-width: 550px) {
+        font-size: 0.7em;
+      }
+      background-color: var(--secondary-key-color);
+      color: hsl(0, 0%, 100%);
+      border-bottom-color: var(--secondary-key-shadow-color);
+      &:hover,
+      &:focus {
+        background-color: var(--secondary-key-hover-color);
+      }
+    }
+
+    &:nth-child(17),
+    &:nth-child(18) {
+      width: calc(50% - 8px);
+      @media only screen and (min-width: 550px) {
+        width: calc(50% - 10px);
+      }
+    }
+
+    &:last-child {
+      background-color: var(--tertiary-key-color);
+      color: var(--tertiary-font-color);
+      font-size: 0.7em;
+      border-bottom-color: var(--tertiary-key-shadow-color);
+      &:hover,
+      &:focus {
+        background-color: var(--tertiary-key-hover-color);
+      }
+    }
+  }
+}
