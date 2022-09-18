@@ -1,8 +1,8 @@
 @use "./utils/variables" as var;
 @use "./utils/flex-mixin" as mix;
-@use './components/calculator';
-@use './components/header';
-@use './components/themeSwitch';
+@use "./components/calculator";
+@use "./components/header";
+@use "./components/themeSwitch";
 @import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap");
 
 * {
@@ -32,14 +32,13 @@ body {
   --tertiary-font-color: hsl(0, 0%, 100%);
   @include mix.setFlex(column);
   min-height: 100vh;
-  font-family: 'League Spartan', sans-serif;
+  font-family: "League Spartan", sans-serif;
   font-size: var(--font-size);
   background-color: var(--bg-color);
   color: var(--primary-font-color);
   font-size: var(--font-size);
-}
 
-body.body--theme2 {
+  &.body--theme2 {
     --bg-color: hsl(0, 0%, 90%);
     --toggle-color: hsl(0, 5%, 81%);
     --screen-color: hsl(0, 0%, 93%);
@@ -56,9 +55,9 @@ body.body--theme2 {
     --tertiary-font-color: hsl(0, 0%, 100%);
     background-color: var(--bg-color);
     color: var(--primary-font-color);
-}
+  }
 
-body.body--theme3 {
+  &.body--theme3 {
     --bg-color: hsl(268, 75%, 9%);
     --toggle-color: hsl(268, 71%, 12%);
     --screen-color: hsl(268, 71%, 12%);
@@ -78,4 +77,5 @@ body.body--theme3 {
     --tertiary-font-color: hsl(60, 10%, 19%);
     background-color: var(--bg-color);
     color: var(--primary-font-color);
+  }
 }
